@@ -13,12 +13,9 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    console.log('--- Mail Config Debug ---')
-    console.log('Host:', config.mailHost)
-    console.log('Port:', config.mailPort)
-    console.log('User:', config.mailUser)
-    console.log('Pass Length:', (config.mailPassword as string)?.length || 0)
-    console.log('-------------------------')
+    /*
+    Debug logs removed for security
+    */
 
     const transporter = nodemailer.createTransport({
         host: config.mailHost as string,
