@@ -12,6 +12,42 @@ useHead({
 
 // Modal State
 const showModal = ref(false)
+const contactName = ref('')
+const contactEmail = ref('')
+const contactMessage = ref('')
+const isLoading = ref(false)
+const showSuccess = ref(false)
+
+const submitForm = async () => {
+  isLoading.value = true
+  try {
+    const response = await $fetch('/api/contact', {
+      method: 'POST',
+      body: {
+        name: contactName.value,
+        email: contactEmail.value,
+        message: contactMessage.value
+      }
+    })
+    
+    // Reset form and show success
+    contactName.value = ''
+    contactEmail.value = ''
+    contactMessage.value = ''
+    showSuccess.value = true
+    alert('Pesan berhasil dikirim!')
+    setTimeout(() => {
+      showModal.value = false
+      showSuccess.value = false
+    }, 2000)
+    
+  } catch (error) {
+    alert('Gagal mengirim pesan. Silakan coba lagi.')
+    console.error(error)
+  } finally {
+    isLoading.value = false
+  }
+}
 
 const openModal = () => {
   showModal.value = true
@@ -252,22 +288,22 @@ const toggleProjects = () => {
           <p class="text-sm text-muted">Ceritakan tentang proyek Anda dan saya akan segera menghubungi Anda.</p>
         </div>
 
-        <form onsubmit="event.preventDefault(); alert('Pertanyaan Terkirim!');">
+        <form @submit.prevent="submitForm">
           <div class="form-group">
             <label class="form-label">Nama</label>
-            <input type="text" class="form-input" placeholder="Nama Anda" />
+            <input v-model="contactName" type="text" class="form-input" placeholder="Nama Anda" required />
           </div>
           <div class="form-group">
             <label class="form-label">Email</label>
-            <input type="email" class="form-input" placeholder="Alamat Email" />
+            <input v-model="contactEmail" type="email" class="form-input" placeholder="Alamat Email" required />
           </div>
           <div class="form-group">
             <label class="form-label">Pesan</label>
-            <textarea class="form-textarea" placeholder="Jelaskan proyek Anda..."></textarea>
+            <textarea v-model="contactMessage" class="form-textarea" placeholder="Jelaskan proyek Anda..." required></textarea>
           </div>
           
-          <button type="submit" class="btn btn-primary btn-full">
-            Kirim Pertanyaan
+          <button type="submit" class="btn btn-primary btn-full" :disabled="isLoading">
+            {{ isLoading ? 'Mengirim...' : 'Kirim Pertanyaan' }}
           </button>
         </form>
       </div>
