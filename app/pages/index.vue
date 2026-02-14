@@ -42,7 +42,11 @@ const submitForm = async () => {
     }, 2000)
     
   } catch (error) {
-    alert('Gagal mengirim pesan. Silakan coba lagi.')
+    if (error.data && error.data.statusMessage) {
+       alert(error.data.statusMessage)
+    } else {
+       alert('Gagal mengirim pesan. Silakan coba lagi. Cek konsol browser untuk detail.')
+    }
     console.error(error)
   } finally {
     isLoading.value = false
