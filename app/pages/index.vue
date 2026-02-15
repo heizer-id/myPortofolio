@@ -157,7 +157,7 @@ const toggleProjects = () => {
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
         </a>
-        <a href="https://blog.nursawaluddin.my.id" target="_blank" rel="noopener noreferrer" class="nav-icon">
+        <a href="https://blog.nursawaluddin.my.id" class="nav-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
