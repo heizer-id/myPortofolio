@@ -14,7 +14,7 @@ const projects = {
     description: 'Platform inovatif yang memberdayakan bisnis untuk mengelola Key Performance Indicator (KPI) secara efisien, memberikan pengalaman pengguna yang mulus sambil membedakan dirinya dari kompetitor.',
     image: '/images/kpi-digital.png',
     tech: ['Next.js', 'Prisma', 'PostgreSQL'],
-    link: '#'
+    link: 'https://kpi.stahdnj.ac.id/'
   },
   'inventaris-digital': {
     title: 'Inventaris Digital',
@@ -25,7 +25,7 @@ const projects = {
     description: 'Sistem manajemen inventaris komprehensif yang dirancang untuk memperlancar pelacakan aset dan pelaporan, menggunakan Google Apps Script untuk integrasi yang mulus.',
     image: '/images/inventaris-digital.png',
     tech: ['Next.js', 'Google Apps Script'],
-    link: '#'
+    link: 'https://inventaris.stahdnj.ac.id/'
   },
   'perpustakaan-digital': {
     title: 'Perpustakaan Digital',
