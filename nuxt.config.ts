@@ -11,6 +11,12 @@ export default defineNuxtConfig({
     contactEmail: process.env.NUXT_CONTACT_EMAIL
   },
 
+  modules: [
+    '@nuxtjs/tailwindcss'
+  ],
+
+  css: ['~/assets/css/main.css'],
+
   app: {
     head: {
       title: 'Nur Sawaluddin - Backend & WordPress Developer',

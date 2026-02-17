@@ -1,46 +1,18 @@
 <script setup>
 import { useRoute } from 'vue-router'
 
+
 const route = useRoute()
 const slug = route.params.slug
 
-const projects = {
-  'kpi-digital': {
-    title: 'Aplikasi KPI Digital',
-    client: 'Agensi Internal', 
-    company: 'Goven Soven',
-    type: 'Aplikasi Web',
-    year: '2024',
-    description: 'Platform inovatif yang memberdayakan bisnis untuk mengelola Key Performance Indicator (KPI) secara efisien, memberikan pengalaman pengguna yang mulus sambil membedakan dirinya dari kompetitor.',
-    image: '/images/kpi-digital.png',
-    tech: ['Next.js', 'Prisma', 'PostgreSQL'],
-    link: 'https://kpi.stahdnj.ac.id/'
-  },
-  'inventaris-digital': {
-    title: 'Inventaris Digital',
-    client: 'Klien Korporat',
-    company: 'Rectangle',
-    type: 'Sistem Manajemen',
-    year: '2025',
-    description: 'Sistem manajemen inventaris komprehensif yang dirancang untuk memperlancar pelacakan aset dan pelaporan, menggunakan Google Apps Script untuk integrasi yang mulus.',
-    image: '/images/inventaris-digital.png',
-    tech: ['Next.js', 'Google Apps Script'],
-    link: 'https://inventaris.stahdnj.ac.id/'
-  },
-  'perpustakaan-digital': {
-    title: 'Perpustakaan Digital',
-    client: 'Instansi Pendidikan',
-    company: 'EduCorp',
-    type: 'Sistem Perpustakaan',
-    year: '2023',
-    description: 'Solusi perpustakaan digital yang menawarkan kemudahan akses bagi mahasiswa dan fakultas ke berbagai sumber daya, dengan fitur pencarian canggih dan manajemen peminjaman.',
-    image: 'https://placehold.co/800x600/111827/FFFFFF?text=Preview+Perpustakaan',
-    tech: ['Next.js', 'PostgreSQL'],
-    link: '#'
-  }
-}
+definePageMeta({
+  layout: 'home'
+})
 
-const project = projects[slug] || {
+
+const { getProjectBySlug } = useProjects()
+
+const project = getProjectBySlug(slug) || {
   title: 'Proyek Tidak Ditemukan',
   description: 'Proyek yang Anda cari tidak dapat ditemukan.',
   image: '',
@@ -56,205 +28,121 @@ useHead({
 </script>
 
 <template>
-  <div class="app-container">
-    <!-- Navigation (Back) -->
-    <nav class="nav-bar mb-4">
-      <div class="nav-links">
-        <NuxtLink to="/" class="nav-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-          </svg>
-           <!-- Added margin for spacing -->
-          <span style="margin-left: 0.5rem; font-weight: 500;">Kembali ke Beranda</span>
-        </NuxtLink>
-      </div>
-    </nav>
+  <div class="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+    <!-- Navbar -->
+    <AppNavbar class="fixed top-6 w-full z-50" />
 
-    <div v-if="project.title !== 'Proyek Tidak Ditemukan'" class="project-detail animate-fade-in">
+    <div v-if="project.title !== 'Proyek Tidak Ditemukan'" class="animate-fade-in relative">
       
-      <!-- Meta Grid -->
-      <div class="card-surface meta-card">
-        <div class="meta-grid">
-          <div class="meta-item">
-            <span class="meta-label">Klien</span>
-            <span class="meta-value">{{ project.client }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Perusahaan</span>
-            <span class="meta-value">{{ project.company }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Tipe Proyek</span>
-            <span class="meta-value">{{ project.type }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Tahun</span>
-            <span class="meta-value">{{ project.year }}</span>
-          </div>
+      <!-- Hero/Header Section -->
+      <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-20 overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] bg-primary/20 rounded-full blur-[100px] opacity-50 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] bg-secondary/20 rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+           <!-- Back Link -->
+           <NuxtLink to="/projects" class="inline-flex items-center text-slate-500 hover:text-primary mb-8 transition-colors font-medium">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Back to Projects
+           </NuxtLink>
+
+           <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                  <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs lg:text-sm font-medium text-slate-600 dark:text-slate-300 w-fit">
+                    <span class="relative flex h-2 w-2">
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    {{ project.type }}
+                  </div>
+                  
+                  <h1 class="text-4xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+                    {{ project.title }}
+                  </h1>
+                  
+                  <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl mb-8">
+                    {{ project.description }}
+                  </p>
+
+                  <div class="flex flex-wrap gap-4">
+                     <a :href="project.link" target="_blank" class="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-xl font-medium transition-all shadow-lg shadow-primary/25 hover:-translate-y-1 flex items-center gap-2">
+                        Visit Website
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                           <line x1="5" y1="12" x2="19" y2="12"></line>
+                           <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                     </a>
+                  </div>
+              </div>
+              
+              <!-- Project Meta -->
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 border border-slate-100 dark:border-slate-800">
+                  <div class="grid grid-cols-2 gap-8">
+                      <div>
+                          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Client</div>
+                          <div class="text-slate-900 dark:text-white font-medium">{{ project.client }}</div>
+                      </div>
+                      <div>
+                          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Company</div>
+                          <div class="text-slate-900 dark:text-white font-medium">{{ project.company }}</div>
+                      </div>
+                       <div>
+                          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Year</div>
+                          <div class="text-slate-900 dark:text-white font-medium">{{ project.year }}</div>
+                      </div>
+                      <div>
+                          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">Tech Stack</div>
+                          <div class="flex flex-wrap gap-2">
+                             <span v-for="t in project.tech" :key="t" class="text-sm text-slate-900 dark:text-white font-medium bg-white dark:bg-slate-700 px-2 py-1 rounded border border-slate-200 dark:border-slate-600">{{ t }}</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Main Content -->
-      <div class="main-content mt-lg">
-        <!-- Logo/Icon Placeholder -->
-        <div class="project-icon mb-4">
-            <!-- Using the same icon style as in the design -->
-           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-           </svg>
-        </div>
+      <!-- Project Image Section -->
+      <section class="py-12 px-6">
+         <div class="container mx-auto">
+             <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100 dark:border-slate-800 bg-slate-200 dark:bg-slate-800">
+                <img :src="project.image" :alt="project.title" class="w-full h-auto object-cover" />
+             </div>
+         </div>
+      </section>
 
-        <h1 class="project-title">{{ project.title }}</h1>
-        
-        <p class="project-description">
-          {{ project.description }}
-        </p>
+      <!-- Additional Images / Showcase -->
+      <section v-if="project.showcase_images && project.showcase_images.length" class="py-12 px-6">
+         <div class="container mx-auto">
+             <div class="grid gap-8">
+                <div v-for="(img, idx) in project.showcase_images" :key="idx" class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100 dark:border-slate-800 bg-slate-200 dark:bg-slate-800">
+                    <img :src="img" :alt="`${project.title} showcase ${idx + 1}`" class="w-full h-auto object-cover" />
+                </div>
+             </div>
+         </div>
+      </section>
 
-        <a :href="project.link" target="_blank" class="btn btn-primary visit-btn">
-          Kunjungi Website
-           <!-- Arrow Right -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 0.5rem;">
-             <line x1="5" y1="12" x2="19" y2="12"></line>
-             <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-
-        <!-- Project Image -->
-        <div class="project-image-container mt-lg">
-          <img :src="project.image" :alt="project.title" class="project-image" />
-        </div>
-      </div>
+      <!-- Content/Details Placeholder (Optional for future expansion) -->
+      <section class="py-20 mx-auto px-6 container max-w-4xl text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+         <p>
+            More detailed breakdown of the development process, challenges faced, and solutions implemented for this project will be added here.
+         </p>
+      </section>
 
     </div>
     
-    <div v-else class="text-center mt-lg">
-      <div class="card-surface" style="padding: 3rem;">
-          <h1>Proyek Tidak Ditemukan</h1>
-          <p class="text-muted mb-4">Proyek yang Anda cari tidak ada.</p>
-          <NuxtLink to="/" class="btn btn-primary">Kembali ke Beranda</NuxtLink>
+    <div v-else class="min-h-screen flex items-center justify-center">
+      <div class="text-center p-12 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Proyek Tidak Ditemukan</h1>
+          <p class="text-slate-500 mb-6">Proyek yang Anda cari tidak ada.</p>
+          <NuxtLink to="/projects" class="px-6 py-2 bg-primary text-white rounded-xl font-medium hover:bg-primary/90 transition-colors">
+            Kembali ke Projects
+          </NuxtLink>
       </div>
     </div>
-
+    
+    <AppFooter />
   </div>
 </template>
-
-<style scoped>
-/* Specific Styles for Project Detail Page */
-
-.meta-card {
-  padding: 2rem;
-  background-color: var(--color-surface); 
-  border: 1px solid rgba(0,0,0,0.05);
-  margin-bottom: 3rem;
-}
-
-.meta-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
-.meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.meta-label {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-}
-
-.meta-value {
-  font-size: var(--font-size-sm);
-  font-weight: 600; /* Slightly bolder */
-  color: var(--color-text-primary);
-}
-
-.project-icon {
-  width: 64px;
-  height: 64px;
-  background-color: #4F46E5; /* Indigo/Blurple color from design idea */
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
-}
-
-.project-title {
-  font-size: 3rem; /* Larger */
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  color: var(--color-primary);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.project-description {
-  font-size: 1.25rem;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  max-width: 700px;
-  margin-bottom: 2.5rem;
-}
-
-.visit-btn {
-  padding: 0.875rem 2rem;
-  font-size: var(--font-size-sm);
-  background-color: #111827; /* Dark black/gray */
-  color: white;
-  display: inline-flex;
-  align-items: center;
-}
-
-.visit-btn:hover {
-    background-color: #000;
-}
-
-.project-image-container {
-  width: 100%;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  background-color: #F3F4F6;
-  margin-top: 4rem;
-}
-
-.project-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.project-image:hover {
-  transform: scale(1.01);
-}
-
-/* Response for smaller screens */
-@media (max-width: 768px) {
-  .meta-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  
-  .project-title {
-    font-size: 2.25rem;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
