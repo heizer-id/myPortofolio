@@ -5,8 +5,6 @@ definePageMeta({
   layout: 'home'
 })
 
-const { openModal } = useModal()
-
 // Navbar Visibility Logic
 const showNavbar = ref(false)
 const heroSection = ref(null)
@@ -101,9 +99,9 @@ const experiences = [
             </p>
             
             <div class="flex flex-wrap gap-3 lg:gap-4 pt-2">
-              <button @click="openModal" class="px-6 py-3 lg:px-8 lg:py-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-medium transition-all shadow-lg shadow-primary/25 hover:-translate-y-1 text-sm lg:text-base">
+              <NuxtLink to="/hire" class="px-6 py-3 lg:px-8 lg:py-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-medium transition-all shadow-lg shadow-primary/25 hover:-translate-y-1 text-sm lg:text-base">
                 Let's Talk
-              </button>
+              </NuxtLink>
               <a href="#projects" class="px-6 py-3 lg:px-8 lg:py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-xl font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all hover:-translate-y-1 text-sm lg:text-base">
                 View Work
               </a>
@@ -255,9 +253,9 @@ const experiences = [
              <p class="text-indigo-100 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
                I'm available for freelance projects and consulting. Let's discuss how we can build scalable solutions together.
              </p>
-             <button @click="openModal" class="px-10 py-4 bg-white text-primary rounded-xl font-bold hover:bg-indigo-50 transition-all shadow-xl hover:-translate-y-1">
+             <NuxtLink to="/hire" class="inline-block px-10 py-4 bg-white text-primary rounded-xl font-bold hover:bg-indigo-50 transition-all shadow-xl hover:-translate-y-1">
                Start a Project
-             </button>
+             </NuxtLink>
           </div>
        </div>
     </section>
