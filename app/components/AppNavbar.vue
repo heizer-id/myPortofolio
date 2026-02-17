@@ -1,8 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const { openModal } = useModal()
-
 // Theme Logic
 const theme = ref('light')
 
@@ -100,13 +98,13 @@ onMounted(() => {
           </svg>
         </button>
         
-        <button @click="openModal" class="flex items-center gap-2 px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm">
+        <NuxtLink to="/hire" class="flex items-center gap-2 px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
           Hire Me
-        </button>
+        </NuxtLink>
       </div>
     </div>
   </nav>

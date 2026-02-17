@@ -51,7 +51,7 @@ const { projects } = useProjects()
 const experiences = [
   {
     role: 'IT Staff',
-    company: 'Universitas Muhammadiyah Sinjai',
+    company: 'STAH Dharma Nusantara Jakarta',
     period: '2023 - Present',
     desc: 'Managing university IT infrastructure, developing academic information systems, and maintaining network security.'
   },

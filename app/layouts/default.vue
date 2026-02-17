@@ -3,8 +3,5 @@
     <AppNavbar />
     <slot />
     <AppFooter />
-    <ContactModal />
   </div>
 </template>
-
-
