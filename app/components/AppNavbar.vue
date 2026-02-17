@@ -31,11 +31,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] sm:w-[90%] max-w-2xl">
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] sm:w-[90%] max-w-2xl min-w-fit">
     <div class="flex items-center justify-between px-2 py-2 pl-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-full shadow-2xl shadow-black/5 ring-1 ring-black/5">
       
       <!-- Navigation Links -->
-      <div class="flex items-center gap-1">
+      <div class="flex items-center gap-3">
         <NuxtLink to="/" class="p-2.5 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-primary transition-all duration-200 group relative" active-class="text-primary bg-primary/5">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
