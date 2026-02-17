@@ -198,11 +198,19 @@ const experiences = [
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
              <NuxtLink v-for="(project, index) in projects" :key="index" :to="project.internal_link" class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 dark:border-slate-800 transition-all duration-300 hover:-translate-y-1">
-                 <div class="h-56 bg-slate-100 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
-                    <!-- Dynamic colorful overlay -->
-                    <div class="absolute inset-0 opacity-10" :class="project.color"></div>
-                    <div class="text-slate-300 dark:text-slate-600 transform group-hover:scale-110 transition-transform duration-500">
-                       <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                 <div class="h-56 bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
+                    <!-- Project Thumbnail Image -->
+                    <img 
+                      v-if="project.image" 
+                      :src="project.image" 
+                      :alt="project.title"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    >
+                    <!-- Fallback placeholder if no image -->
+                    <div v-else class="absolute inset-0 flex items-center justify-center">
+                      <div class="text-slate-300 dark:text-slate-600">
+                         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                      </div>
                     </div>
                     <!-- Tags overlay -->
                     <div class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
