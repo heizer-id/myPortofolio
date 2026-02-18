@@ -24,3 +24,4 @@ logs
 !.env.example
 
 blogger-template.xml
+gas-snippet.js
