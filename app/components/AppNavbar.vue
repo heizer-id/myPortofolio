@@ -29,9 +29,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[98%] sm:w-[95%] md:w-[90%] max-w-2xl min-w-fit">
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[98%] sm:w-[95%] md:w-[90%] max-w-6xl min-w-fit">
     <div class="flex items-center justify-between px-2 py-2 pl-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-full shadow-2xl shadow-black/5 ring-1 ring-black/5">
       
+      <!-- Navbar Title -->
+      <NuxtLink to="/" class="text-lg font-bold text-slate-900 dark:text-white mr-4 hover:text-primary transition-colors whitespace-nowrap hidden sm:block">
+        Nur Sawaluddin
+      </NuxtLink>
+
       <!-- Navigation Links -->
       <div class="flex items-center gap-1.5 sm:gap-3">
         <NuxtLink to="/" class="p-2 sm:p-2.5 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-primary transition-all duration-200 group relative" active-class="text-primary bg-primary/5">

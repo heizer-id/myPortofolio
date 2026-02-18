@@ -60,7 +60,7 @@ const submitForm = async () => {
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/20 dark:bg-primary/10 blur-[120px] rounded-full opacity-50 pointer-events-none"></div>
       
       <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center max-w-2xl mx-auto">
+        <div class="text-center max-w-6xl mx-auto">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-semibold mb-4">
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -83,7 +83,7 @@ const submitForm = async () => {
     <!-- Contact Form Section -->
     <section class="py-12 pb-24">
       <div class="container mx-auto px-6">
-        <div class="max-w-2xl mx-auto">
+        <div class="max-w-4xl mx-auto">
           <!-- Success Message -->
           <div v-if="showSuccess" class="mb-8 p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl">
             <div class="flex items-center gap-3">

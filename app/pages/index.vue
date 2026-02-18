@@ -94,7 +94,7 @@ const experiences = [
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">WordPress Dev</span>
             </h1>
             
-            <p class="text-base lg:text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+            <p class="text-base lg:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
               I build robust, scalable backend systems and custom WordPress solutions. Focused on performance, security, and clean architecture.
             </p>
             
@@ -248,9 +248,9 @@ const experiences = [
           <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
           
-          <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="relative z-10 max-w-6xl mx-auto">
              <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Ready to launch your next idea?</h2>
-             <p class="text-indigo-100 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
+             <p class="text-indigo-100 text-lg md:text-xl mb-10 leading-relaxed max-w-4xl mx-auto">
                I'm available for freelance projects and consulting. Let's discuss how we can build scalable solutions together.
              </p>
              <NuxtLink to="/hire" class="inline-block px-10 py-4 bg-white text-primary rounded-xl font-bold hover:bg-indigo-50 transition-all shadow-xl hover:-translate-y-1">

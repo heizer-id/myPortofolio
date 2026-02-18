@@ -25,7 +25,7 @@ useHead({
       <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] bg-secondary/20 rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
 
       <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
+        <div class="max-w-6xl mx-auto text-center">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs lg:text-sm font-medium text-slate-600 dark:text-slate-300 w-fit">
               <span class="relative flex h-2 w-2">
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -37,7 +37,7 @@ useHead({
               My <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Gear Store</span>
             </h1>
             
-            <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-4xl mx-auto">
               A carefully selected collection of tech gear, accessories, and tools that I use and recommend.
             </p>
         </div>

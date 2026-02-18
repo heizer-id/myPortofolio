@@ -30,7 +30,7 @@ const { projects } = useProjects()
       <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] bg-secondary/20 rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
 
       <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
+        <div class="max-w-6xl mx-auto text-center">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs lg:text-sm font-medium text-slate-600 dark:text-slate-300 w-fit">
               <span class="relative flex h-2 w-2">
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -52,7 +52,7 @@ const { projects } = useProjects()
     <!-- Content Section -->
     <section class="py-12 bg-slate-50 dark:bg-slate-800/30">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-12 items-start">
                     <div>
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Lebih Lanjut Tentang Saya</h2>
@@ -82,7 +82,7 @@ const { projects } = useProjects()
             <div class="text-center mb-16">
                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Proyek Sampingan</h2>
                <div class="h-1 w-12 bg-primary mx-auto rounded-full mb-4"></div>
-               <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+               <p class="text-slate-600 dark:text-slate-400 max-w-4xl mx-auto">
                   Saya mengerjakan passion project di waktu senggang, silakan lihat (semoga Anda menyukainya).
                </p>
             </div>
@@ -133,9 +133,9 @@ const { projects } = useProjects()
           <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
           
-          <div class="relative z-10 max-w-3xl mx-auto">
+          <div class="relative z-10 max-w-6xl mx-auto">
              <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Let's work together.</h2>
-             <p class="text-indigo-100 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
+             <p class="text-indigo-100 text-lg md:text-xl mb-10 leading-relaxed max-w-4xl mx-auto">
                Creating user experience and visual appealing design
              </p>
              <div class="flex flex-wrap justify-center gap-4">
